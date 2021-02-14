@@ -1,5 +1,5 @@
 
-class actionEventEmitter {
+class actionEventController {
     listeners = {};  // key-value pair
 /**
  * 
@@ -20,7 +20,6 @@ class actionEventEmitter {
         console.log(entity)
         let events = dataHelpers.find(entity, 'on')
         console.log(events)
-
         events.forEach((evt) => {
             window[evt] = this.conductEvent
         })
@@ -94,10 +93,10 @@ class actionEventEmitter {
         fns.forEach((f) => {
             f(...args); // For all function listeners, invoke the function with the arguments
         });
-        return true; Return true when done
+        return true; //Return true when done
     }
     
-    conductEvent() { 
+    conductEvent(e) { 
         console.log(e.type, e.target);
         
     }
@@ -116,4 +115,16 @@ class actionEventEmitter {
     rawListeners(event) {
         return this.listeners[event];
     }
+}
+
+
+
+
+
+window.onload = loadActionEventController;
+
+function loadActionEventController() {
+    var actionEventInstance = new actionEventController();
+    actionEventInstance.createListeners(this);
+    console.log("loaded ActionEvents", actionEventInstance);
 }
