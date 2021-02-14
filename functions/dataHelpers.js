@@ -8,6 +8,12 @@ class dataHelpers {
         return result;
     }
 
-
 }
+
+function* createIndex() {
+    let number = 1;
+    while (true)
+        yield number++;
+}
+
 

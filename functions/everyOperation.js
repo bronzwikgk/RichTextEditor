@@ -145,12 +145,6 @@ class operate {
     static isOdd(argA) { return numbers.every(function (e) { return Math.abs(e % 2) == 1; }); }
 }
 
-function* createIndex() {
-    let number = 1;
-    while (true)
-        yield number++;
-}
-
 
 
 
